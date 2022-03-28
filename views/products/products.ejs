@@ -1,0 +1,44 @@
+    <%- include('../partials/head'); %>
+    <title>Products</title>
+    
+</head>
+<body class="admin">
+  <%- include('../partials/header') %>
+      <div class="container">
+    <div class="control">
+        <h1 class="subtitle">Products</h1>  
+        <a href="/admin/products/new" class="button is-primary">New Product</a>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for ( let a of products ){ %> 
+            <tr>
+                <td><%= a.title %> </td>
+                <td><%= a.productPrice %> </td>
+                <td>
+                  <a href="/admin/product/<%= a.id %>/edit">
+                    <button class="button is-link">
+                      Edit
+                    </button>
+                  </a>
+                </td>
+                <td>
+                  <form method="POST" action="/admin/product/<%= a.id %>/delete ">
+                  <button class="button is-danger">Delete</button>
+                  </form>
+                </td>
+            </tr>  
+            <% } %> 
+        </tbody>
+        </table> 
+    </div>
+</body>
+</html>

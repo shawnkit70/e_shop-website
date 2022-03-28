@@ -1,0 +1,53 @@
+    <%- include("../partials/head") ;  %> 
+    <title>Products-item</title>
+
+</head>
+<body>
+    <%- include("../partials/headShow"); %>
+    <section class="banner">
+        <div class="container">
+          <div class="columns is-centered">
+            <img src="/images/banner.jpg" />
+          </div>
+        </div>
+    </section>
+      
+    <section>
+        <div class="container">
+          <div class="columns">
+            <div class="column "></div>
+            <div class="column is-four-fifths">
+              <div>
+                <h2 class="title text-center">Featured Items</h2>
+                <div class="columns products">
+                    <% for ( let i of product) { %>
+                 <div class="column is-one-quarter">
+                        
+                        <div class="card product-card">
+                          <figure>
+                            <img src="data:image/png;base64, <%= i.image %> "/>
+                          </figure>
+                          <div class="card-content">
+                            <h3 class="subtitle"><%= i.title %></h3>
+                            <h5><%= i.productPrice %>/-</h5>
+                          </div>
+                          <footer class="card-footer">
+                            <form action="/cart/products" method="POST">
+                              <input hidden value="<%= i.id %>" type="text" name="productId">
+                              <button class="button has-icon is-inverted">
+                            <i class="fa fa-shopping-cart"></i> Add to cart</button>
+                            </form>
+                          </footer>
+                        </div>
+                      </div>
+                      <% } %>    
+                </div>
+              </div>
+            </div>
+            <div class="column "></div>
+          </div>
+        </div>
+      </section>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+    <%- include('../partials/head'); %>
+    <title>Sign-up form</title>
+</head>
+<body>
+    <div>
+        <% if ( !sessionObj ){ %> 
+            <%= `Welcome : ${sessionObj.userId} `  %>
+            <% } %>  
+    </div>
+    <%- include('../partials/header') %>
+    <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-one-quarter">
+        <form method="POST" action="/signUp">
+            <h1 class="title">Sign Up</h1>
+              <div class="field">
+                <label class="label">Email</label>
+            <input type="text" name="email" placeholder="Username">
+            <p class="help is-danger"><%= getHelp( errors , "email")  %></p>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+            <input type="password" name="Password" placeholder="Password">
+            <p class="help is-danger"><%= getHelp( errors , "Password")  %></p>
+        </div>
+        <div class="field">
+          <label class="label">Password Confirmation</label>
+            <input type="password" name="passwordConfirmation" placeholder="Confirm Password">
+            <p class="help is-danger"><%= getHelp( errors , "passwordConfirmation")  %></p>
+        </div>
+        <button class="button is-primary">Submit</button>
+      </form>
+      <a href="/signIn">Have an account? Sign In</a>
+        </form>
+    </div>
+</div>
+</div>
+    
+</body>
+</html>
